@@ -1,10 +1,10 @@
 # 91 · PATTERN DI SVILUPPO SEZIONI E BLOCCHI
 
-> **Stato: UFFICIALE.** Validato da Alex il 2026-09-18. Vale su tutti i suoi siti.
+> **Stato: UFFICIALE.** Validato il 2026-09-18.
 >
-> Ricavato leggendo il DOM di **deltatraslochi.com** e confrontandolo con il kit in
-> `10-DESIGN-SYSTEM.md`. Descrive **come si costruisce una sezione**: scheletro,
-> larghezze, spaziature, quando creare una classe.
+> È il **metodo di costruzione** usato in questi progetti: scheletro di una sezione,
+> larghezze, spaziature, anatomia di intestazioni e card, quando creare una classe.
+> Ricavato da progetti realizzati e confrontato con il kit in `10-DESIGN-SYSTEM.md`.
 
 ---
 
@@ -56,7 +56,7 @@ nessun respiro     →  niente classe
 | `lt-section-container-95` / `-90` | 95% / 90% | varianti disponibili, poco usate |
 
 > ⚠️ **La direzione flex di `lt-section-container` cambia da sito a sito.**
-> Su deltatraslochi.com è `row`; su webagencyalba.it è `column`. Non darla per scontata:
+> Su un progetto è `row`, su un altro `column`. Non darla per scontata:
 > se la sezione ha due colonne affiancate, **imposta `_direction` esplicitamente
 > sull'elemento**, altrimenti su un sito funziona e sull'altro le colonne si impilano.
 
@@ -129,7 +129,7 @@ CLASSE body-fake-h*                    →  lo decide il design: che aspetto dev
 | titolo grande che **deve** restare nella gerarchia | `h2` | `body-fake-h1` | pesa e domina |
 | occhiello sopra il titolo | `div` | `body-fake-h5` / `-h6` | non ruba gerarchia |
 
-#### Esempio reale — homepage di Web Agency Alba
+#### Esempio reale — una homepage
 
 ```
 h1.body-fake-h5     "Web agency ad Alba"        ← titolo SEO, reso come tagline
@@ -263,8 +263,8 @@ Vedi anche §7: la classe nuova porta solo ciò che le utility non coprono.
 ### Le classi di colore sono semantiche, non letterali
 
 `lt-white-text` **non vuol dire "bianco"**. Vuol dire *"il testo nel colore chiaro della
-palette di questo progetto"*. Su deltatraslochi.com rende `rgb(253, 195, 0)`, giallo, ed
-è **corretto così**: quello è il chiaro di quel progetto.
+palette di questo progetto"*. Su un progetto può rendere `rgb(253, 195, 0)`, giallo, ed
+essere **corretto così**: quello è il chiaro di quel progetto.
 
 **Conseguenze pratiche:**
 
@@ -309,9 +309,9 @@ Rinominarla romperebbe tutti gli elementi che la referenziano, e le classi globa
 
 | Data | Evento |
 |---|---|
-| 2026-09-17 | Pattern ricavato dal DOM di deltatraslochi.com |
-| 2026-09-17 | Alex risolve i punti aperti: `lt-white-text` semantica (§8), quando omettere `lt-padding-t-b` (§1), `lt-col-spacing-md2` non è un default (§3), `lt-pineapple-radius` fuori dal pattern |
-| **2026-09-18** | **Alex valida l'impianto e aggiunge la §7 "stile ripetuto = classe". File ufficiale.** |
+| 2026-09-17 | Pattern ricavato da un progetto realizzato |
+| 2026-09-17 | Risolti i punti aperti: `lt-white-text` semantica (§8), quando omettere `lt-padding-t-b` (§1), `lt-col-spacing-md2` non è un default (§3), `lt-pineapple-radius` fuori dal pattern |
+| **2026-09-18** | **Impianto validato, aggiunta la §7 "stile ripetuto = classe". File ufficiale.** |
 
 ---
 

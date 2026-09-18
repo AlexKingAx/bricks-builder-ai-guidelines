@@ -174,12 +174,12 @@ ma va scritto esplicitamente lì. In assenza di indicazioni, vale il kit.
 
 ```
 Design system di riferimento:   ✅ bricks-guidelines/10-DESIGN-SYSTEM.md
-Fonte del kit:                  webagencyalba.it
+Fonte del kit:                  progetto sorgente (vedi il suo overlay in siti/)
 Definito il:                    2026-09-17
 ```
 
 **Su ogni sito nuovo si parte da `10-DESIGN-SYSTEM.md`**, salvo che Alex dica diversamente per quel progetto specifico.
 
-Il kit comprende 64 classi globali, 23 variabili e i breakpoint (desktop-first, base 1920px). **Non comprende la palette**: quella si crea all'inizio di ogni progetto e le classi le si raccorda man mano.
+Il kit comprende 65 classi globali, 24 variabili, 2 theme styles e i breakpoint (desktop-first, base 1920px). **Non comprende la palette**: quella si crea all'inizio di ogni progetto e le classi le si raccorda man mano.
 
 alex-web.it è **legacy** e non va usato come modello — vedi `bricks-guidelines/siti/alex-web-it.md`.

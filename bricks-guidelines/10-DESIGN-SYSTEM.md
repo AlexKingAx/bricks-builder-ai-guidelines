@@ -1,15 +1,17 @@
 # 10 · DESIGN SYSTEM CANONICO — Starter kit di Alex
 
-> **Questo è IL design system di riferimento per ogni sito nuovo.**
-> Decisione di Alex del 2026-09-17: vale come default su tutti i progetti,
-> salvo indicazione contraria esplicita da parte sua, progetto per progetto.
+> **Questo è il design system di riferimento per ogni sito nuovo.**
+> Vale come default su tutti i progetti, salvo indicazione contraria scritta
+> nell'overlay del singolo sito.
 >
-> Estratto da webagencyalba.it il 2026-09-17 via MCP, sola lettura.
-> Quel sito è la **fonte** del kit, non un progetto come gli altri.
+> Estratto il 2026-09-17 dal progetto che fa da sorgente del kit, via MCP in sola lettura.
 
 ---
 
 ## Come si propaga a un sito nuovo
+
+> 📦 **Pacchetto pronto:** [`../../starter-kit/bricks-starter-kit.zip`](../../starter-kit/)
+> contiene già tutto quanto descritto qui. Vedi `starter-kit/README.md`.
 
 **Non clonare il sito.** In Bricks 2.4 il modo corretto è il pacchetto di trasferimento:
 
@@ -78,7 +80,7 @@ correggono: se non sono quelli giusti, è il kit che non è stato importato — 
 è importarlo, non modificarli a mano.
 
 ---
-## Variabili globali (23)
+## Variabili globali (24)
 
 ### Generate da scala tipografica
 
@@ -131,7 +133,7 @@ correggono: se non sono quelli giusti, è il kit che non è stato importato — 
 > pur essendo chiaramente una scala. Da uniformare se un giorno si rifà il kit.
 
 ---
-## Classi globali (64)
+## Classi globali (65)
 
 Categorie in uso: **Layout** e **Font & Text**. Il resto è senza categoria.
 

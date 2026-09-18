@@ -98,7 +98,7 @@ fra sei mesi.
 `create-color-palette` accetta i colori inline nell'array `colors`: **una palette completa
 si crea con una sola chiamata**, non con palette + N colori + N variabili.
 
-> Verificato su webagencyalba.it il 2026-09-17 leggendo lo schema delle ability.
+> Verificato il 2026-09-17 leggendo lo schema delle ability su un progetto reale.
 
 ---
 

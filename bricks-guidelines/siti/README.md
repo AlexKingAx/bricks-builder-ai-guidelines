@@ -55,7 +55,7 @@ Su quale sito lavoriamo?
 cp bricks-guidelines/90-overlay-TEMPLATE.md bricks-guidelines/siti/nomesito-it.md
 ```
 
-Nome file: il dominio con i punti sostituiti da trattini. `webagencyalba.it` → `webagencyalba-it.md`.
+Nome file: il dominio con i punti sostituiti da trattini. `esempio.it` → `esempio-it.md`.
 
 ### Passo 3 — Leggi il sito vero
 

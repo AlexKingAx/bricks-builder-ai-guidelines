@@ -112,6 +112,10 @@ una sequenza continua: i buchi sono voluti, servono ad aggiungere file senza rin
 ├── 📄 README.md          ← sei qui: setup, replica, spiegazione di ogni file
 ├── 📄 CLAUDE.md          ← l'orchestratore, caricato a ogni sessione
 │
+├── 📦 starter-kit/       ← il design system pronto da importare
+│   ├── bricks-starter-kit.zip
+│   └── README.md             come si importa
+│
 └── 📁 bricks-guidelines/
     │
     │   ┄┄ 00-09 · REGOLE GENERALI ┄┄ valgono su qualsiasi sito Bricks
@@ -428,6 +432,11 @@ Prompt pronto in `bricks-guidelines/AVVIO.md`.
 
 ### 8.3 Seminare il design system
 
+> 📦 **Scorciatoia:** in [`starter-kit/`](starter-kit/) c'è il pacchetto già pronto —
+> 65 classi, 24 variabili, 2 theme styles, breakpoint. Si carica da
+> `Bricks → Settings → Import & Export`. Istruzioni in
+> [`starter-kit/README.md`](starter-kit/README.md).
+
 **Non clonare il sito.** Clonare propaga anche i difetti e non è versionabile. In Bricks 2.4:
 
 ```
@@ -620,8 +629,8 @@ import HTML/CSS.
 
 ### `10-DESIGN-SYSTEM.md` — il kit canonico ⭐
 
-**Cosa fa:** documenta il design system di riferimento: 64 classi globali raggruppate per
-famiglia, 23 variabili con i valori veri, i breakpoint. Più la procedura per portarlo su un
+**Cosa fa:** documenta il design system di riferimento: 65 classi globali raggruppate per
+famiglia, 24 variabili con i valori veri, i breakpoint. Più la procedura per portarlo su un
 sito nuovo.
 
 **Perché esiste:** prima il design system veniva propagato **clonando interi siti**. Ogni copia
@@ -745,7 +754,7 @@ DESKTOP-FIRST  ·  base 1920px
 desktop 1920  →  laptop 1279  →  tablet_portrait 991  →  mobile_landscape 767  →  mobile_portrait 478
 ```
 
-### Variabili (23)
+### Variabili (24)
 
 **Scale generate** — `heading-size-H1…H6` e `text-size-B1…B4`, `clamp()` fluido
 (min 16px ratio 1.25 · max 20px ratio 1.333).
@@ -766,7 +775,7 @@ desktop 1920  →  laptop 1279  →  tablet_portrait 991  →  mobile_landscape 
 | `--lt-spacing-large` | `32px` | scala spaziature |
 | `--lt-real-vh` | `var(--vh, 1vh)` | altezza viewport reale, `--vh` da JavaScript |
 
-### Classi globali (64)
+### Classi globali (65)
 
 **Layout e utility (22)**
 ```

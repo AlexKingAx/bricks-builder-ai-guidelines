@@ -65,7 +65,7 @@ bricks/cleanup-orphaned-elements
 > Lo schema dell'ability dice testualmente: *"Le variabili esistenti non presenti
 > nell'array vengono conservate"*. Si passa **solo** la riga da aggiungere o
 > modificare, non l'intero elenco. Verificato aggiungendo una variabile a
-> webagencyalba.it: le 23 preesistenti erano tutte intatte, zero avvisi.
+> Verificato su un progetto reale: le 23 variabili preesistenti erano tutte intatte, zero avvisi.
 > Resta 🟠 perché scrive sul design system e non ha revisioni, ma **non** è una
 > sostituzione totale. Il presupposto "va ripassato tutto il payload" era sbagliato
 > ed è pericoloso al contrario: induce a riscrivere righe che non serviva toccare.

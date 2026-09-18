@@ -1,0 +1,34 @@
+# ── macOS ──────────────────────────────────────────────
+._*
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+Icon?
+
+# ── Windows ────────────────────────────────────────────
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── Credenziali — NON versionare MAI ───────────────────
+.env
+.env.*
+*.key
+*.pem
+secrets.*
+credentials.*
+.claude/settings.local.json
+
+# ── Editor ─────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*~
+
+# ── Temporanei ─────────────────────────────────────────
+*.log
+*.tmp
+node_modules/

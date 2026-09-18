@@ -39,6 +39,32 @@ Se non sai su quale sito stai lavorando → **chiedi**. Non dedurlo.
 
 ---
 
+## 🔴 SITO SENZA OVERLAY → PRIMA SI DOCUMENTA
+
+**Se in `bricks-guidelines/siti/` non esiste il file di questo sito, non si lavora.**
+La prima cosa da fare è crearlo. Non dopo, non "se c'è tempo": prima.
+
+```
+ls bricks-guidelines/siti/
+   │
+   ├─ c'è <sito>.md   →  leggilo e procedi
+   └─ non c'è         →  🛑 STOP: genera l'overlay
+                          processo completo in siti/README.md
+                          prompt pronto in AVVIO.md
+```
+
+In sintesi: chiedi **quale sito e quale ambiente** (non si deducono) → copia
+`90-overlay-TEMPLATE.md` in `siti/<sito>.md` → leggi il sito in **sola lettura** →
+compila ogni sezione → riporta incoerenze e domande → **solo allora** si lavora.
+
+Senza overlay non sai se è produzione, che breakpoint ha, cosa esiste già e cosa
+non va toccato. Ogni azione successiva sarebbe un'ipotesi.
+
+> La cartella `siti/` è vuota in una installazione pulita: gli overlay non sono
+> versionati, si rigenerano su ogni macchina e per ogni progetto.
+
+---
+
 ## Routing — quale file leggere per cosa
 
 | Stai per… | Leggi |
@@ -53,6 +79,7 @@ Se non sai su quale sito stai lavorando → **chiedi**. Non dedurlo.
 | scrivere stili responsive | `04-breakpoints.md` |
 | scrivere CSS, JS, SVG o PHP | `05-codice-custom.md` |
 | importare HTML/CSS | `05-codice-custom.md` |
+| **lavorare su un sito non ancora documentato** | 🛑 **`siti/README.md`** — processo obbligatorio |
 | documentare un sito nuovo | `90-overlay-TEMPLATE.md` |
 | aprire una sessione di lavoro | `AVVIO.md` — prompt pronti |
 
@@ -92,8 +119,9 @@ Dettagli in `01-workflow.md`.
 
 ---
 
-## Le cinque regole che non hanno eccezioni
+## Le regole che non hanno eccezioni
 
+0. **Nessun overlay del sito → non si lavora.** Si genera prima. Vedi `siti/README.md`.
 1. **Leggi prima di scrivere.** Sempre `get-design-context` prima di toccare il design system.
 2. **Mai un valore hardcoded.** Si usano le variabili esistenti.
 3. **Mai creare senza aver cercato un duplicato.** `list-global-classes`, non `get-design-context` (tronca a 100).
@@ -120,7 +148,8 @@ bricks-guidelines/
   90-overlay-TEMPLATE.md         ← template da compilare per ogni sito
   91-pattern-sezioni-blocchi.md  ← ⭐ come si costruisce una sezione
   siti/
-    alex-web-it.md               ← ⚠️ LEGACY, non è il riferimento
+    README.md                    ← 🛑 processo obbligatorio per documentare un sito
+    <sito>.md                    ← overlay dei progetti — NON versionati, locali
 ```
 
 ---

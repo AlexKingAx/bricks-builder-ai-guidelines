@@ -132,9 +132,9 @@ una sequenza continua: i buchi sono voluti, servono ad aggiungere file senza rin
     │   ┄┄ SENZA NUMERO · STRUMENTI ┄┄
     ├── 🚀 AVVIO.md                  prompt pronti per iniziare una sessione
     │
-    └── 📁 siti/                     un file per progetto  🔒 NON versionata
-        ├── README.md                    come si genera un overlay
-        └── …                            gli overlay restano in locale
+    └── 📁 siti/                     🔒 vuota in una installazione pulita
+        ├── README.md                    🛑 processo obbligatorio per documentare un sito
+        └── <sito>.md                    overlay dei progetti — non versionati
 ```
 
 ### Quale file leggere, in base a cosa stai facendo
@@ -401,7 +401,11 @@ cp -R CLAUDE.md bricks-guidelines/ /percorso/nuovo-progetto/
 I file `00`–`05`, `91` e `10-DESIGN-SYSTEM.md` restano **identici**: sono regole generali e il
 design system canonico.
 
-### 8.2 Creare l'overlay del sito
+### 8.2 Creare l'overlay del sito — obbligatorio
+
+> 🔴 **Senza overlay non si lavora.** È la regola zero: se in `siti/` non esiste il file di
+> quel sito, la prima cosa da fare è crearlo. Il processo completo, passo per passo, è in
+> [`bricks-guidelines/siti/README.md`](bricks-guidelines/siti/README.md).
 
 ```bash
 cp bricks-guidelines/90-overlay-TEMPLATE.md bricks-guidelines/siti/nuovo-sito.md

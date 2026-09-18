@@ -132,10 +132,9 @@ una sequenza continua: i buchi sono voluti, servono ad aggiungere file senza rin
     │   ┄┄ SENZA NUMERO · STRUMENTI ┄┄
     ├── 🚀 AVVIO.md                  prompt pronti per iniziare una sessione
     │
-    └── 📁 siti/                     un file per progetto
-        ├── webagencyalba-it.md         overlay del sito
-        ├── webagencyalba-it-classi.md  inventario classi annotato
-        └── alex-web-it.md              ⚠️ legacy, non è un modello
+    └── 📁 siti/                     un file per progetto  🔒 NON versionata
+        ├── README.md                    come si genera un overlay
+        └── …                            gli overlay restano in locale
 ```
 
 ### Quale file leggere, in base a cosa stai facendo
@@ -152,7 +151,7 @@ una sequenza continua: i buchi sono voluti, servono ad aggiungere file senza rin
 | **scrivere CSS, JS, SVG o PHP** | [`05-codice-custom.md`](bricks-guidelines/05-codice-custom.md) |
 | **sapere cosa esiste già nel kit** | [`10-DESIGN-SYSTEM.md`](bricks-guidelines/10-DESIGN-SYSTEM.md) |
 | **documentare un sito nuovo** | [`90-overlay-TEMPLATE.md`](bricks-guidelines/90-overlay-TEMPLATE.md) |
-| **lavorare su un sito già documentato** | [`siti/`](bricks-guidelines/siti/) |
+| **documentare o rileggere un sito** | [`siti/README.md`](bricks-guidelines/siti/README.md) |
 
 ### Ordine di lettura consigliato la prima volta
 
@@ -408,6 +407,9 @@ design system canonico.
 cp bricks-guidelines/90-overlay-TEMPLATE.md bricks-guidelines/siti/nuovo-sito.md
 ```
 
+> La cartella `siti/` **non è versionata**: gli overlay restano sulla tua macchina. Vedi
+> [`siti/README.md`](bricks-guidelines/siti/README.md).
+
 Poi compilalo **leggendo il sito vero**, non a memoria. Le chiamate sono elencate dentro il
 template:
 
@@ -455,6 +457,7 @@ resto.** Su una macchina nuova va rifatto:
 | Cosa | Dove vive | Si copia? |
 |---|---|---|
 | Guidelines | questa cartella | ✅ sì, sono file |
+| Overlay dei siti (`siti/`) | locale, non versionata | ❌ si rigenerano leggendo il sito |
 | **Configurazione MCP** | `~/.claude.json` | ❌ **contiene le password: da rifare** |
 | Plugin skill Bricks | `~/.claude/plugins/` | ❌ da reinstallare |
 | Memoria di Claude | `~/.claude/projects/…/memory/` | ⚠️ opzionale, è una preferenza personale |
@@ -671,10 +674,21 @@ niente finché non te lo chiedo"*.
 
 ---
 
-### `siti/` — un file per progetto
+### `siti/` — un file per progetto 🔒
 
-Ogni sito ha il suo overlay compilato. Contiene anche i progetti **legacy**, marcati come tali
-perché non vengano usati come modello.
+**Cosa fa:** contiene un overlay compilato per ogni sito su cui si lavora: ambiente,
+breakpoint, classi, componenti, cose da non toccare, debito noto.
+
+**Perché non è versionata:** questi file sono **generati**, non sorgente. Si producono
+copiando `90-overlay-TEMPLATE.md` e compilandolo leggendo il sito vero, e spesso riguardano
+progetti di clienti. Versionarli significherebbe pubblicare informazioni che non sono mie da
+pubblicare, e tenere in repo dati che invecchiano al primo intervento sul sito.
+
+Nel repository c'è solo [`siti/README.md`](bricks-guidelines/siti/README.md), che spiega
+come generarne uno. Tutto il resto è escluso da `.gitignore`.
+
+> L'overlay di un sito **vince sulle regole generali e sul design system canonico**: un
+> progetto può avere regole sue. Non vince mai su `00-SAFETY.md`.
 
 ---
 

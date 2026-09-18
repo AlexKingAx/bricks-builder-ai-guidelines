@@ -83,25 +83,121 @@ non va toccato. Ogni azione successiva sarebbe un'ipotesi.
 | documentare un sito nuovo | `90-overlay-TEMPLATE.md` |
 | aprire una sessione di lavoro | `AVVIO.md` — prompt pronti |
 
-**Skill Bricks installate** — usale per il dominio specifico invece di improvvisare:
+**Skill Bricks installate** — 45, dal pacchetto `codeerhq/bricks-skills`.
+Se una skill copre l'argomento, **caricala**: contiene dettagli che queste guidelines non ripetono.
+
+<details>
+<summary><b>🧭 Orientamento e pianificazione</b></summary>
+
+| Quando | Skill |
+|---|---|
+| Orientamento — <sub>prima chiamata di ogni sessione, regole base e nomi degli strumenti</sub> | `bricks-start-here` |
+| Brief vago → piano — <sub>trasforma «fammi una pagina servizi» in un piano eseguibile</sub> | `bricks-plan-from-brief` |
+| Modifiche complesse — <sub>flusso a file per interventi ampi su siti esistenti</sub> | `bricks-agent-repository` |
+| Verifica pre-modifica — <sub>controlla cambiamenti ampi, distruttivi o incerti</sub> | `bricks-quality-gate` |
+
+</details>
+
+<details>
+<summary><b>🎨 Design system</b></summary>
+
+| Quando | Skill |
+|---|---|
+| Sito nuovo da zero — <sub>semina la fondazione del design system</sub> | `bricks-seed-design-system` |
+| Design system — <sub>classi globali, variabili, palette, theme styles</sub> | `bricks-design-systems` |
+| Scegliere un nome — <sub>prima di creare o rinominare classi e variabili</sub> | `bricks-naming-conventions` |
+| Audit design system — <sub>classi, variabili, palette, componenti</sub> | `bricks-audit-design-system` |
+| Breakpoint — <sub>🔴 leggere sì, cambiare no — vedi 04-breakpoints.md</sub> | `bricks-breakpoints` |
+
+</details>
+
+<details>
+<summary><b>🧱 Costruire</b></summary>
+
+| Quando | Skill |
+|---|---|
+| Componenti — <sub>proprietà, varianti, slot, estrazione</sub> | `bricks-components` |
+| Slider, tabs, accordion — <sub>dropdown, nav, offcanvas</sub> | `bricks-nestable-elements` |
+| Header e footer — <sub>routing, sticky, comportamenti</sub> | `bricks-headers-footers` |
+| Navigazione — <sub>menu WordPress, nav annidata, mega panel</sub> | `bricks-mega-menus` |
+| Template e condizioni — <sub>quale template vince e dove</sub> | `bricks-templates-conditions` |
+
+</details>
+
+<details>
+<summary><b>🔁 Dati e query</b></summary>
+
+| Quando | Skill |
+|---|---|
+| Query loop — <sub>ripetere elementi su post, termini, utenti, API</sub> | `bricks-query-loops` |
+| Query riutilizzabili — <sub>query globali e categorie</sub> | `bricks-global-queries` |
+| Filtri di query — <sub>sorgenti, binding, indice</sub> | `bricks-query-filters` |
+| Dynamic data — <sub>tag, modificatori, provider</sub> | `bricks-dynamic-data` |
+| Tag dinamici custom — <sub>nuovi provider in child theme o plugin</sub> | `bricks-custom-dynamic-data-providers` |
+
+</details>
+
+<details>
+<summary><b>⚙️ Funzionalità</b></summary>
+
+| Quando | Skill |
+|---|---|
+| Form — <sub>campi, azioni, integrazioni, anti-spam</sub> | `bricks-forms` |
+| Popup — <sub>trigger, condizioni, frequenza</sub> | `bricks-popups` |
+| Interazioni — <sub>trigger, azioni, selettori target</sub> | `bricks-interactions` |
+| Condizioni elemento — <sub>mostrare o nascondere in base al contesto</sub> | `bricks-element-conditions` |
+| WooCommerce — <sub>setup, archivi, carrello, checkout, account</sub> | `bricks-woocommerce` |
+
+</details>
+
+<details>
+<summary><b>💻 Codice e sviluppo</b></summary>
+
+| Quando | Skill |
+|---|---|
+| Codice custom — <sub>echo, hook, Code element, CSS e JS</sub> | `bricks-custom-code` |
+| Trovare un hook — <sub>indice di action e filtri con firme</sub> | `bricks-hooks-reference` |
+| Elementi PHP custom — <sub>registrazione, controlli, rendering</sub> | `bricks-custom-elements` |
+| Controlli custom — <sub>valori, binding CSS, rendering</sub> | `bricks-custom-controls` |
+| Child theme — <sub>caricamento asset, registrazione estensioni</sub> | `bricks-child-theme-patterns` |
+| Schemi elementi — <sub>controlli e valori prima di scrivere JSON</sub> | `bricks-element-schemas` |
+
+</details>
+
+<details>
+<summary><b>📥 Import e riproduzione</b></summary>
+
+| Quando | Skill |
+|---|---|
+| HTML/CSS → Bricks — <sub>quando l'import diretto non basta</sub> | `bricks-html-css-to-bricks` |
+| Figma → Bricks — <sub>da frame, specifica o export di token</sub> | `bricks-figma-to-bricks` |
+| Riprodurre un sito — <sub>ricostruire un design esistente</sub> | `bricks-site-reproduction` |
+| Trasferire fra siti — <sub>pacchetti ispezionati, selezione esplicita</sub> | `bricks-import-export` |
+| Media e icone — <sub>upload, download, icone custom</sub> | `bricks-media-assets` |
+| Font custom — <sub>famiglie e file, preservando l'esistente</sub> | `bricks-custom-fonts` |
+
+</details>
+
+<details>
+<summary><b>🔧 Manutenzione e diagnostica</b></summary>
+
+| Quando | Skill |
+|---|---|
+| Audit del sito — <sub>dati, riferimenti, template, disponibilità abilities</sub> | `bricks-site-audit` |
+| Manutenzione — <sub>rigenerazione CSS, dati orfani</sub> | `bricks-maintenance` |
+| Performance — <sub>problemi di caricamento e rendering misurati</sub> | `bricks-performance` |
+| Verifica nel browser — <sub>screenshot e confronto col risultato atteso</sub> | `bricks-browser-verify` |
+| Impostazioni globali — <sub>chiavi consentite, senza toccare le altre</sub> | `bricks-settings` |
+| Sidebar — <sub>registrare, rinominare, collegare</sub> | `bricks-sidebars` |
+| Permessi builder — <sub>🔴 capability e ruoli — normalmente disattivate</sub> | `bricks-role-permissions` |
+| Diagnostica connessione — <sub>stato abilities, dispatcher, errori</sub> | `bricks-ai-tab` |
+| Aggiornare le skill — <sub>quando esce una release nuova</sub> | `bricks-skills-update` |
+
+</details>
 
 | Argomento | Skill |
 |---|---|
-| orientamento generale | `bricks-start-here` |
-| query loop | `bricks-query-loops` |
-| componenti | `bricks-components` |
-| form | `bricks-forms` |
-| popup | `bricks-popups` |
-| interazioni | `bricks-interactions` |
-| condizioni elemento | `bricks-element-conditions` |
-| template e condizioni | `bricks-templates-conditions` |
-| dynamic data | `bricks-dynamic-data` |
-| WooCommerce | `bricks-woocommerce` |
-| codice custom | `bricks-custom-code` |
-| verifica nel browser | `bricks-browser-verify` |
 | stile dei commenti, SVG, preferenze personali | `alex-config` |
-
-> Se una skill Bricks copre l'argomento, **caricala**. Contiene dettagli che queste guidelines non ripetono.
 
 ---
 
@@ -180,6 +276,6 @@ Definito il:                    2026-09-17
 
 **Su ogni sito nuovo si parte da `10-DESIGN-SYSTEM.md`**, salvo che Alex dica diversamente per quel progetto specifico.
 
-Il kit comprende 65 classi globali, 24 variabili, 2 theme styles e i breakpoint (desktop-first, base 1920px). **Non comprende la palette**: quella si crea all'inizio di ogni progetto e le classi le si raccorda man mano.
+Il kit comprende 64 classi globali, 23 variabili e i breakpoint (desktop-first, base 1920px). **Non comprende la palette**: quella si crea all'inizio di ogni progetto e le classi le si raccorda man mano.
 
 alex-web.it è **legacy** e non va usato come modello — vedi `bricks-guidelines/siti/alex-web-it.md`.

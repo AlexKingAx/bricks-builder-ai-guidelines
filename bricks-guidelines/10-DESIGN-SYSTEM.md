@@ -80,7 +80,7 @@ correggono: se non sono quelli giusti, è il kit che non è stato importato — 
 è importarlo, non modificarli a mano.
 
 ---
-## Variabili globali (24)
+## Variabili globali (23)
 
 ### Generate da scala tipografica
 
@@ -133,7 +133,7 @@ correggono: se non sono quelli giusti, è il kit che non è stato importato — 
 > pur essendo chiaramente una scala. Da uniformare se un giorno si rifà il kit.
 
 ---
-## Classi globali (65)
+## Classi globali (64)
 
 Categorie in uso: **Layout** e **Font & Text**. Il resto è senza categoria.
 

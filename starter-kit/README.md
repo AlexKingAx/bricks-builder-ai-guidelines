@@ -13,6 +13,12 @@ esportato da Bricks e pronto da importare su un'installazione nuova.
 
 Richiede **Bricks 2.4 o superiore**. Peso: ~11 KB.
 
+> ℹ️ Il pacchetto è esportato da un progetto reale, quindi contiene **qualche aggiunta
+> nata durante lo sviluppo di quel sito** oltre al kit documentato: una taglia tipografica
+> "display" e la sua variabile, e i theme styles del progetto. Sono innocue e si possono
+> deselezionare in fase di import. Il kit vero e proprio — quello che vale come riferimento —
+> è quello descritto in `10-DESIGN-SYSTEM.md`.
+
 ---
 
 ## ⚠️ Cosa NON contiene, di proposito

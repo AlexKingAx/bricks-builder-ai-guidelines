@@ -629,8 +629,8 @@ import HTML/CSS.
 
 ### `10-DESIGN-SYSTEM.md` — il kit canonico ⭐
 
-**Cosa fa:** documenta il design system di riferimento: 65 classi globali raggruppate per
-famiglia, 24 variabili con i valori veri, i breakpoint. Più la procedura per portarlo su un
+**Cosa fa:** documenta il design system di riferimento: 64 classi globali raggruppate per
+famiglia, 23 variabili con i valori veri, i breakpoint. Più la procedura per portarlo su un
 sito nuovo.
 
 **Perché esiste:** prima il design system veniva propagato **clonando interi siti**. Ogni copia
@@ -754,7 +754,7 @@ DESKTOP-FIRST  ·  base 1920px
 desktop 1920  →  laptop 1279  →  tablet_portrait 991  →  mobile_landscape 767  →  mobile_portrait 478
 ```
 
-### Variabili (24)
+### Variabili (23)
 
 **Scale generate** — `heading-size-H1…H6` e `text-size-B1…B4`, `clamp()` fluido
 (min 16px ratio 1.25 · max 20px ratio 1.333).
@@ -775,7 +775,7 @@ desktop 1920  →  laptop 1279  →  tablet_portrait 991  →  mobile_landscape 
 | `--lt-spacing-large` | `32px` | scala spaziature |
 | `--lt-real-vh` | `var(--vh, 1vh)` | altezza viewport reale, `--vh` da JavaScript |
 
-### Classi globali (65)
+### Classi globali (64)
 
 **Layout e utility (22)**
 ```

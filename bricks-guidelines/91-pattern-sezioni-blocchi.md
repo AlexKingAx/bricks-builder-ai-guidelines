@@ -244,6 +244,11 @@ calcolata per quel caso, un `_direction` che cambia da sito a sito (§2).
 Se ti accorgi di star scrivendo lo stesso valore due volte, **hai già sbagliato**:
 torna indietro e fai la classe.
 
+**Se una variante serve solo su alcuni elementi** (una riga alternata, un'immagine con
+`contain`, un tag statico): non è un caso per il CSS raw con `:nth-child` o selettori sui
+figli. È un **modificatore BEM**, una classe in più sull'elemento con i campi nativi
+(`riga--alt`, `foto--contain`, `tag--static`). Vedi `05-codice-custom.md`.
+
 ---
 
 ## 8. Composizione delle utility

@@ -22,6 +22,9 @@ secrets.*
 credentials.*
 .claude/settings.local.json
 
+# ── Script di lavoro one-shot (import, migrazioni): restano in locale ──
+scripts/
+
 # ── Overlay dei siti: documentazione di lavoro, non sorgente ──
 # Si rigenerano leggendo il sito vero. Spesso riguardano progetti
 # di clienti, quindi restano in locale.

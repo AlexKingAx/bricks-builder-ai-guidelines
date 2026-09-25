@@ -153,10 +153,30 @@ Un import HTML/CSS può tornare "parziale" con l'elenco di cosa è stato omesso 
 
 ---
 
+## Errori già fatti — non ripeterli
+
+Lezioni da lavori reali. Ognuna è costata almeno un giro di correzione.
+
+| Errore | Cosa fare |
+|---|---|
+| **CSS raw nelle classi che agisce sui figli** (`:nth-child`, `:not()`, discendenti) | Mai senza permesso. Una classe in più sull'elemento, con i campi nativi. Vedi `05-codice-custom.md` |
+| **Chiavi inventate salvate in silenzio** nelle classi (`_gap` su un blocco, ecc.): nessun errore, nessun effetto | Le classi globali non validano. Controlla le chiavi con `get-element-schema` + `controlKeys` prima di scriverle |
+| **Blocchi Bricks vanno a capo di default** (`flex-wrap: wrap`) e sono in colonna: il contenuto finisce in una seconda colonna quando l'altezza è fissa, o gli elementi si impilano | Dove serve, imposta `_flexWrap: nowrap` e `_direction` esplicitamente, e misura nel browser |
+| **Breakpoint desktop-first**: un override mobile si scrive con `:mobile_landscape` (≤767px), non con una regola a parte | Rileggi i breakpoint e non duplicare il valore base nell'override |
+| **Il CSS di classe esce solo se la classe è usata** in un elemento della pagina: un nodo creato da JS non ne beneficia | La struttura statica sta nel builder; il JS imposta solo i valori dinamici |
+| **`set-page-elements` riscrive tutto**, compresa la firma del codice (es. query PHP firmata) | Usa `add-element`, `update-element`, `remove-element`. Non esiste "sposta elemento": pianifica la struttura prima |
+| **Il codice non passa dall'API** (`bricks_code_sensitive_write_forbidden`): PHP nel query editor, `{echo:…}`, JS | Non aggirare. Costruisci il resto, dì all'utente cosa incollare e dove, ricordagli di risalvare per firmare |
+| **Il parametro URL con lo stesso nome del post type** (`?auto=`) dà 404: WordPress lo legge come query variable | Scegli un nome diverso dallo slug di ogni CPT e tassonomia |
+| **Contenuti di un altro progetto** trovati in header/footer clonati | Non fidarti di "è lo starter kit": leggi header e footer prima di dire cosa c'è |
+| **"Fatto" senza misurare** | Verifica nel browser su desktop, tablet e mobile: allineamento, overflow, elementi tagliati |
+
+---
+
 ## Cose che non si fanno mai
 
 - dichiarare "fatto" senza rilettura
 - creare una classe senza aver cercato se esiste
+- scrivere `_cssCustom` senza permesso chiesto prima — vedi `05-codice-custom.md`
 - usare `set-page-elements` quando basta `update-element`
 - assumere mobile-first senza aver letto i breakpoint
 - procedere dopo un commit parziale come se nulla fosse

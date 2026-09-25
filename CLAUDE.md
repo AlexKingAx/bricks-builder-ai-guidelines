@@ -225,6 +225,7 @@ Dettagli in `01-workflow.md`.
 3-ter. **Stile uguale su 2+ elementi → si crea una classe**, mai ripetuto sull'elemento. Se serve, più classi in BEM. Vedi `91-pattern-sezioni-blocchi.md` §7.
 4. **Mai assumere la logica responsive.** `list-breakpoints`, ogni volta.
 5. **Mai dire "fatto" senza aver riletto** il risultato.
+6. **Mai CSS raw (`_cssCustom`) senza permesso chiesto prima.** Prima controlli Bricks, classe in più, condizioni, struttura. Dettagli e formato della richiesta in `05-codice-custom.md`.
 
 ---
 

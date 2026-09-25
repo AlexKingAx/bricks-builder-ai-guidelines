@@ -121,6 +121,15 @@ bricks/regenerate-css-files
 
 > `set-template-conditions` merita attenzione particolare: una condizione sbagliata fa apparire un template **su tutto il sito**.
 
+### CSS raw (`_cssCustom`)
+Qualsiasi scrittura di CSS a mano: `_cssCustom` su classe o elemento, `css.stylesheet` del
+theme style, Code element CSS, Custom code di sito.
+
+**Il permesso si chiede PRIMA di scrivere**, con il formato di `05-codice-custom.md`
+(dove, cosa, perché i controlli non bastano, testo esatto). Nasce da un errore reale:
+regole raw sui figli dentro classi globali, invisibili nel builder. Un permesso vale per
+una regola, non per le successive.
+
 ### Modifiche multiple in un colpo
 ```
 bricks/apply-site-changeset       bricks/resume-site-changeset
@@ -230,4 +239,5 @@ In dubbio sull'ambiente: **chiedi**. Non dedurlo dal dominio.
 4. **Mai** creare una classe o variabile senza aver cercato un duplicato.
 5. **Mai** cambiare i breakpoint. Sono la fondazione di tutto il responsive.
 6. **Mai** trattare "fai la pagina X" come autorizzazione a toccare il design system.
-7. Se un'azione non è in nessuna lista → **trattala come 🟠**.
+7. **Mai** scrivere `_cssCustom` (o altro CSS raw) senza aver chiesto e ottenuto il permesso per quella regola. Prima si prova con controlli, classe in più, condizioni, struttura — vedi `05-codice-custom.md`.
+8. Se un'azione non è in nessuna lista → **trattala come 🟠**.

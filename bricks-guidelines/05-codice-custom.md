@@ -5,14 +5,101 @@
 ## L'ordine delle preferenze
 
 ```
-1. CONTROLLI BRICKS       sempre, quando bastano
-2. CSS su classe globale  quando serve CSS vero, riutilizzabile
-3. CSS sull'elemento      solo per il caso unico
-4. CODE ELEMENT (JS)      quando serve comportamento
-5. PHP                    ultima risorsa, con conferma
+1. CONTROLLI BRICKS         sempre, quando bastano — anche per breakpoint e pseudo-classi
+2. CLASSE IN PIÙ            un modificatore BEM che imposta i controlli (vedi sotto)
+3. CONDIZIONI / STRUTTURA   condizioni Bricks o elementi separati al posto di regole sui figli
+4. CSS RAW (_cssCustom)     🛑 solo con permesso chiesto PRIMA — vedi guardrail
+5. CODE ELEMENT (JS)        quando serve comportamento
+6. PHP                      ultima risorsa, con conferma
 ```
 
 **Non scrivere CSS per fare ciò che un controllo fa già.** Diventa invisibile nel builder e nessuno lo trova più.
+
+---
+
+## 🛑 CSS raw (`_cssCustom`) — guardrail
+
+> **Niente CSS raw senza permesso esplicito, chiesto PRIMA di scriverlo.**
+> Vale ovunque si scriva CSS a mano: `_cssCustom` su classe globale, `_cssCustom` su elemento,
+> `css.stylesheet` del theme style, Code element, Custom code di sito.
+> Un permesso vale per **quella** regola, non per le successive.
+
+### Perché esiste questa regola
+
+Sulla pagina Confronto di un sito ho scritto regole raw dentro classi globali che agivano
+sui figli: `:nth-child(even)` per la zebra, `:not(:first-child)` per nascondere un titolo,
+selettori discendenti con `.brxe-text-basic` ripetuto per vincere sulla specificità.
+Nel builder erano invisibili: aprendo l'elemento non c'è nessun campo che spieghi quel
+comportamento, e un controllo "non fa niente" perché una regola altrove lo sovrascrive.
+Tutto era ottenibile con i campi di Bricks e **una classe in più sull'elemento**. Il costo
+è stato un audit e la riscrittura di quattro classi.
+
+### Quando è ammesso (devono valere tutte)
+
+1. La proprietà o funzione **non ha nessun controllo** in Bricks. Verificalo davvero:
+   `get-element-schema` con `controlKeys`, e prova anche la variante per breakpoint
+   (`:mobile_landscape`) e per pseudo-classe (`:hover`). Esempi tipici che *non* hanno
+   controllo: `color-mix()`, `line-clamp`, `@container`, `::before`/`::after` con contenuto,
+   `:has()`, `@keyframes`, `text-wrap: balance`.
+2. Non si risolve con la checklist qui sotto.
+3. Il caso lo richiede necessariamente. Non basta che sia più veloce o più comodo.
+
+### Non sono motivi validi
+
+Layout, flex/grid, colori, sfondi, bordi, ombre, tipografia, spaziature, posizione,
+dimensioni, visibilità per breakpoint, hover semplice: **hanno tutti un controllo**.
+Se ti sembra che manchi, hai cercato il campo sbagliato o il breakpoint sbagliato.
+
+### Vietato in ogni caso
+
+- **Selettori che agiscono sui figli** dentro `_cssCustom` di una classe (`.a .b`, `>`,
+  `:nth-child`, `:first-child`, `:not()`): l'effetto compare su elementi che non hanno
+  traccia della regola. Se un figlio deve avere uno stile, gli si dà una classe.
+- **Specificità forzata** (`.brxe-text-basic` aggiunto solo per vincere) e `!important`
+  senza motivo scritto: sono il sintomo che le classi sono sbagliate.
+- **Stile statico scritto in JS.** Se un elemento serve a JS (una barra sticky, un
+  pannello), la struttura e lo stile vivono nel builder come elemento con le sue classi;
+  il JS imposta solo i valori dinamici (`top`, `transform`, larghezze, `display`).
+
+### Checklist prima di chiedere il permesso (in quest'ordine)
+
+| # | Prova | Al posto di |
+|---|---|---|
+| 1 | Campo nativo, anche per breakpoint e pseudo-classe | qualsiasi CSS |
+| 2 | Classe già esistente (`bg-soft`, `lt-*`…) | classe nuova + CSS |
+| 3 | **Modificatore BEM sull'elemento stesso** (`riga--alt`, `foto--contain`, `tag--static`): una classe in più con campi nativi | `:nth-child`, `:first-child`, `:not()`, selettori sui figli |
+| 4 | **Condizioni Bricks** (es. indice del loop) | CSS per mostrare/nascondere in base alla posizione |
+| 5 | **Struttura**: elemento separato, o due elementi con classi diverse | regole discendenti |
+
+Se dopo i cinque punti serve ancora CSS raw → chiedi.
+
+### Come si chiede
+
+```
+🛑 Mi serve CSS raw
+Dove:        classe `xxx` / elemento `yyy`
+Cosa:        <proprietà o funzione senza controllo>
+Perché:      <cosa manca in Bricks, e cosa ho già provato nei punti 1–5>
+Testo:       <il CSS esatto che scriverei>
+Senza CSS:   <cosa si perde con l'alternativa migliore>
+Approvi?
+```
+
+### Se viene approvato
+
+- una regola per volta, con il selettore **solo sulla classe o sull'elemento stesso**;
+- solo `var(--token)`, mai valori fissi (vedi `02-design-system.md`);
+- un commento che dice **perché** serve, non cosa fa;
+- lo riporti nel report finale, in una riga "CSS raw autorizzati";
+- lo annoti nell'overlay del sito (`siti/<sito>.md`, sezione debito tecnico: dove sta e perché),
+  così chi lavora dopo lo trova.
+
+### Audit di chiusura
+
+Prima di scrivere "fatto": rileggi classi ed elementi toccati e cerca `_cssCustom`.
+Devono esserci **solo** quelli autorizzati. Ricorda che le classi globali **non validano**
+le chiavi: una proprietà inventata (es. `_gap` su un blocco) viene salvata senza errore e
+poi non fa niente. Controlla le chiavi con `get-element-schema` prima di scriverle.
 
 ---
 
@@ -39,20 +126,23 @@ Verifica se è attivo (`get-global-settings`). **Attivarlo è 🟠**: cambia il 
 
 ---
 
-## CSS
+## CSS — dove va, quando è autorizzato
 
-**Dove metterlo, in ordine:**
+Vale **solo dopo** il permesso descritto nel guardrail qui sopra. Gli stili normali non sono
+CSS: si impostano con i controlli, su una classe globale.
 
 | Dove | Quando |
 |---|---|
-| Classe globale (Class Manager) | stile riutilizzabile — **la scelta giusta quasi sempre** |
-| Theme style | comportamento di default del sito |
-| Elemento | caso unico e irripetibile |
-| Settings > Custom code | solo globale vero (reset, font-face) |
+| Controlli Bricks su classe globale | **sempre**, per ogni stile riutilizzabile |
+| Theme style (controlli) | comportamento di default del sito |
+| `_cssCustom` di una classe | solo se autorizzato, per una proprietà senza controllo |
+| `_cssCustom` di un elemento | solo se autorizzato, caso unico e irripetibile |
+| Settings > Custom code | solo globale vero (reset, font-face), autorizzato |
 
 > In 2.4 il Custom CSS di una classe globale si modifica direttamente dal Class Manager.
+> Proprio per questo è facile scriverlo senza accorgersene: è il motivo del guardrail.
 
-**Regole:**
+**Regole (per il CSS autorizzato):**
 - sempre `var(--token)`, mai valori fissi — vedi `02-design-system.md`
 - `!important` solo se documentato con il motivo nel commento
 - niente selettori che escono dall'elemento (`body > div > .cosa`)
